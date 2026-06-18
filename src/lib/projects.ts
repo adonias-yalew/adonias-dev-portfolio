@@ -57,84 +57,6 @@ export const projects: Project[] = [
     image: "/clinic-screenshot.png",
   },
   {
-    slug: "tourism-booking",
-    title: "Tourism Booking System",
-    tagline: "End-to-end booking platform for tours, hotels, and travel packages.",
-    year: "2024",
-    problem:
-      "Local tourism operators rely on manual booking workflows that are error-prone, hard to scale, and disconnected from customer-facing channels.",
-    solution:
-      "A full booking system covering inventory, availability, pricing, and reservations, with a clean admin panel for operators and a guest-friendly booking experience.",
-    architecture:
-      "Node.js + Express backend, MySQL relational schema for inventory and bookings, REST APIs consumed by the client, and a clear separation between admin and customer flows.",
-    features: [
-      "Tour, hotel, and package catalog",
-      "Availability and pricing engine",
-      "Reservation and confirmation flow",
-      "Admin dashboard for operators",
-      "Booking history per customer",
-    ],
-    tech: ["Node.js", "Express.js", "MySQL", "REST APIs", "JavaScript"],
-    challenges: [
-      "Modeling availability across overlapping tour packages",
-      "Preventing double-bookings under concurrent requests",
-      "Designing an admin UI usable by non-technical operators",
-    ],
-    results: [
-      "Reliable booking flow with confirmation",
-      "Operator-friendly admin panel",
-      "Foundation for payment integration",
-    ],
-    future: [
-      "Online payments",
-      "Multi-language support",
-      "Reporting and analytics for operators",
-    ],
-    github: "https://github.com/adonias-yalew/TravelEth",
-    demo: "https://travel-eth-one.vercel.app/tourism",
-    image: "/travel-screenshot.png?v=2",
-  },
-  {
-    slug: "adis-tesfa",
-    title: "Adis Tesfa Mental Health Platform",
-    tagline:
-      "Accessible mental health support with appointments and structured resources.",
-    status: "In Active Development",
-    year: "2025",
-    problem:
-      "Access to mental health support is limited, fragmented, and often intimidating. People need a calm, structured way to find help and book sessions.",
-    solution:
-      "A focused platform offering authenticated user accounts, appointment scheduling with practitioners, a curated resource library, and personal dashboards — built with privacy and clarity as defaults.",
-    architecture:
-      "Node.js + Express API, PostgreSQL for users, appointments, and resources, secure session handling, and a clean service layer separating scheduling, content, and user concerns.",
-    features: [
-      "User authentication",
-      "Appointment scheduling",
-      "Curated resource library",
-      "User dashboards",
-      "Secure data handling",
-    ],
-    tech: ["Node.js", "Express.js", "PostgreSQL", "REST APIs", "JWT"],
-    challenges: [
-      "Designing scheduling logic that handles cancellations and time zones",
-      "Keeping sensitive data secure end-to-end",
-      "Making the UX feel calm rather than clinical",
-    ],
-    results: [
-      "Working appointment flow with confirmation",
-      "Resource library with structured categories",
-      "Dashboard tracking user activity",
-    ],
-    future: [
-      "Practitioner-side scheduling tools",
-      "Encrypted in-app messaging",
-      "Anonymous self-assessment modules",
-    ],
-    github: "https://github.com/adonias-yalew",
-    demo: "#",
-    image: "/addis-tesfa-screenshot.png",
-  },
-  {
     slug: "haymanote",
     title: "Haymanote Multi-Faith Platform",
     tagline:
@@ -173,7 +95,123 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/adonias-yalew",
     demo: "#",
-    image: "/haymanote-screenshot.png?v=2",
+    image: "/haymanote-screenshot.png?v=3",
+  },
+  {
+    slug: "mela-solutions",
+    title: "Mela Solutions",
+    tagline: "Student Job & Opportunity Platform helping students discover entry-level jobs and internships.",
+    status: "In Active Development",
+    year: "2025 – Present",
+    problem:
+      "Students and recent graduates struggle to find accessible, entry-level positions and internships tailored to their academic backgrounds, often missing out on critical opportunities due to fragmented job feeds.",
+    solution:
+      "A full-stack talent acquisition platform that aggregates corporate opportunities, features smart search filters, and sends real-time notifications via a custom Telegram bot.",
+    architecture:
+      "Next.js frontend with SSR/ISR routes, Supabase PostgreSQL database hosting user authentication and job tables, and a background sync engine communicating with the Telegram Bot API for push alerts.",
+    features: [
+      "Built a full-stack talent acquisition platform to help students discover entry-level jobs, internships, and corporate opportunities",
+      "Implemented secure user authentication, dynamic job listings, and smart search filters using Supabase backend functions",
+      "Integrated Telegram Bot API features to allow users to receive real-time opportunity updates and interact with the platform seamlessly",
+      "Designed a responsive frontend interface focused on usability, accessibility, and a modern, clean user experience"
+    ],
+    tech: ["Next.js", "JavaScript", "Supabase", "Telegram Bot API"],
+    challenges: [
+      "Managing high concurrency and real-time alerts via the Telegram Bot API",
+      "Configuring efficient search index filters on Supabase PostgreSQL tables",
+      "Ensuring a seamless, mobile-first experience across low-bandwidth connections"
+    ],
+    results: [
+      "Designed a responsive and highly accessible frontend focus on student usability",
+      "Implemented Supabase backend functions for secure auth and dynamic query filters",
+      "Created an active Telegram bot integration delivering instant opportunity updates"
+    ],
+    future: [
+      "AI-based opportunity recommendation engine",
+      "In-app resume builder and quick-apply functions",
+      "Corporate dashboard for recruiters to post listings directly"
+    ],
+    github: "https://github.com/adonias-yalew",
+    demo: "#",
+    image: "/mela-soultions-screenshot.png",
+  },
+  {
+    slug: "tourism-booking",
+    title: "Tourism Booking System",
+    tagline: "End-to-end booking platform for tours, hotels, and travel packages.",
+    year: "2024",
+    problem:
+      "Local tourism operators rely on manual booking workflows that are error-prone, hard to scale, and disconnected from customer-facing channels.",
+    solution:
+      "A full booking system covering inventory, availability, pricing, and reservations, with a clean admin panel for operators and a guest-friendly booking experience.",
+    architecture:
+      "Node.js + Express backend, MySQL relational schema for inventory and bookings, REST APIs consumed by the client, and a clear separation between admin and customer flows.",
+    features: [
+      "Tour, hotel, and package catalog",
+      "Availability and pricing engine",
+      "Reservation and confirmation flow",
+      "Admin dashboard for operators",
+      "Booking history per customer",
+    ],
+    tech: ["Node.js", "Express.js", "MySQL", "REST APIs", "JavaScript"],
+    challenges: [
+      "Modeling availability across overlapping tour packages",
+      "Preventing double-bookings under concurrent requests",
+      "Designing an admin UI usable by non-technical operators",
+    ],
+    results: [
+      "Reliable booking flow with confirmation",
+      "Operator-friendly admin panel",
+      "Foundation for payment integration",
+    ],
+    future: [
+      "Online payments",
+      "Multi-language support",
+      "Reporting and analytics for operators",
+    ],
+    github: "https://github.com/adonias-yalew/TravelEth",
+    demo: "https://travel-eth-one.vercel.app/",
+    image: "/travel-screenshot.png?v=2",
+  },
+  {
+    slug: "addis-tesfa",
+    title: "Addis Tesfa Mental Health Platform",
+    tagline:
+      "Accessible mental health support with appointments and structured resources.",
+    status: "In Active Development",
+    year: "2025",
+    problem:
+      "Access to mental health support is limited, fragmented, and often intimidating. People need a calm, structured way to find help and book sessions.",
+    solution:
+      "A focused platform offering authenticated user accounts, appointment scheduling with practitioners, a curated resource library, and personal dashboards — built with privacy and clarity as defaults.",
+    architecture:
+      "Node.js + Express API, PostgreSQL for users, appointments, and resources, secure session handling, and a clean service layer separating scheduling, content, and user concerns.",
+    features: [
+      "User authentication",
+      "Appointment scheduling",
+      "Curated resource library",
+      "User dashboards",
+      "Secure data handling",
+    ],
+    tech: ["Node.js", "Express.js", "PostgreSQL", "REST APIs", "JWT"],
+    challenges: [
+      "Designing scheduling logic that handles cancellations and time zones",
+      "Keeping sensitive data secure end-to-end",
+      "Making the UX feel calm rather than clinical",
+    ],
+    results: [
+      "Working appointment flow with confirmation",
+      "Resource library with structured categories",
+      "Dashboard tracking user activity",
+    ],
+    future: [
+      "Practitioner-side scheduling tools",
+      "Encrypted in-app messaging",
+      "Anonymous self-assessment modules",
+    ],
+    github: "https://github.com/adonias-yalew",
+    demo: "#",
+    image: "/addis-tesfa-screenshot.png",
   },
 ];
 
