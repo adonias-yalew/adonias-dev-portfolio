@@ -1,26 +1,33 @@
 import { Outlet, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { reportLovableError } from "./lib/lovable-error-reporting";
+import { CustomCursor } from "./components/ui/CustomCursor";
+import { FloatingNav } from "./components/ui/FloatingNav";
+import { AnimatedBackground } from "./components/ui/AnimatedBackground";
 
 export function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-primary">Error 404</p>
-        <h1 className="mt-4 text-4xl font-semibold text-foreground">Page not found</h1>
-        <p className="mt-3 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-8">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Return home
-          </Link>
+    <AnimatedBackground>
+      <CustomCursor />
+      <FloatingNav />
+      <div className="flex min-h-screen items-center justify-center bg-transparent px-4 relative z-10">
+        <div className="max-w-md text-center">
+          <p className="font-mono text-xs uppercase tracking-widest text-white/50">Error 404</p>
+          <h1 className="mt-4 text-4xl font-bold text-white">Page not found</h1>
+          <p className="mt-3 text-sm text-white/60">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+          <div className="mt-8">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-105"
+            >
+              Return home
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 }
 
@@ -32,33 +39,45 @@ export function ErrorBoundary({ error }: { error?: Error }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          Something went wrong
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Try refreshing or head back home.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
-            onClick={() => window.location.reload()}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Try again
-          </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-card"
-          >
-            Go home
-          </a>
+    <AnimatedBackground>
+      <CustomCursor />
+      <FloatingNav />
+      <div className="flex min-h-screen items-center justify-center bg-transparent px-4 relative z-10">
+        <div className="max-w-md text-center">
+          <h1 className="text-xl font-bold tracking-tight text-white">
+            Something went wrong
+          </h1>
+          <p className="mt-2 text-sm text-white/60">
+            Try refreshing or head back home.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <button
+              onClick={() => window.location.reload()}
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-105"
+            >
+              Try again
+            </button>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
+            >
+              Go home
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 }
 
 export default function Layout() {
-  return <Outlet />;
+  return (
+    <AnimatedBackground>
+      <CustomCursor />
+      <FloatingNav />
+      <div className="relative z-10 pt-20">
+        <Outlet />
+      </div>
+    </AnimatedBackground>
+  );
 }
