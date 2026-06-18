@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Database, Code } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Database, Code, Phone } from "lucide-react";
 import { projects } from "@/lib/projects";
 import { motion } from "framer-motion";
 import { FadeUp, StaggerContainer, StaggerItem } from "../components/ui/FadeUp";
@@ -16,6 +16,7 @@ import {
 const GITHUB_URL = "https://github.com/adonias-yalew";
 const LINKEDIN_URL = "https://www.linkedin.com/in/adonias-yalew-4269312a8/";
 const EMAIL = "adoniasyalew69@gmail.com";
+const PHONE = "+251-941-99-99-83";
 
 export default function Home() {
   return (
@@ -198,83 +199,92 @@ function ExperienceSection() {
 function ProjectsSection() {
   return (
     <Section id="projects" label="03 / Work" title="Selected Projects">
-      <div className="flex flex-col gap-32">
-        {projects.map((p, index) => (
-          <FadeUp key={p.slug} delay={index * 0.1}>
-            <div className="group relative grid gap-8 lg:grid-cols-12 lg:gap-16 items-center">
-              <div className="lg:col-span-7 overflow-hidden rounded-3xl border border-white/5 bg-white/5 aspect-[16/10] relative">
-                {p.image ? (
-                  <img 
-                    src={p.image} 
-                    alt={p.title} 
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center font-mono text-white/20">
-                    No Image
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-black/20 transition-opacity group-hover:opacity-0" />
-              </div>
-              
-              <div className="lg:col-span-5 flex flex-col justify-center">
-                {p.status && (
-                  <div className="mb-4 flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-40" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-white/60">
-                      {p.status}
-                    </span>
-                  </div>
-                )}
-                <h3 className="text-3xl font-semibold tracking-tight text-white mb-4">
-                  {p.title}
-                </h3>
-                <p className="text-lg font-light leading-relaxed text-white/60 mb-8">
-                  {p.tagline}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {p.tech.slice(0, 4).map((t) => (
-                    <TechBadge key={t} tech={t} />
-                  ))}
-                </div>
-                <div className="flex items-center gap-6">
-                  <Link
-                    to={`/projects/${p.slug}`}
-                    className="flex items-center gap-2 text-sm font-medium text-white transition-opacity hover:opacity-70"
-                  >
-                    Case Study <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  {p.github && (
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-white/40 transition-colors hover:text-white"
-                      aria-label="GitHub Repo"
-                    >
-                      <Github className="h-5 w-5" />
-                    </a>
+      <div className="grid gap-x-12 gap-y-24 md:grid-cols-2 lg:gap-x-16">
+        {projects.map((p, index) => {
+          // Stagger effect: even cards are slightly shifted down on desktop
+          const isEven = index % 2 === 0;
+          return (
+            <FadeUp key={p.slug} delay={index * 0.1} className={isEven ? "" : "md:mt-16"}>
+              <div className="group relative flex flex-col">
+                <Link 
+                  to={`/projects/${p.slug}`} 
+                  className="overflow-hidden rounded-3xl border border-white/5 bg-white/5 aspect-[16/10] relative block shadow-2xl"
+                >
+                  {p.image ? (
+                    <img 
+                      src={p.image} 
+                      alt={p.title} 
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center font-mono text-white/20">
+                      No Image
+                    </div>
                   )}
-                  {p.demo && (
-                    <a
-                      href={p.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-white/40 transition-colors hover:text-white"
-                      aria-label="Live Demo"
+                  <div className="absolute inset-0 bg-black/25 transition-opacity group-hover:opacity-10" />
+                </Link>
+                
+                <div className="mt-8 flex flex-col">
+                  <div className="flex items-center gap-3 mb-3 text-xs font-mono text-white/40">
+                    <span>{p.year}</span>
+                    {p.status && (
+                      <>
+                        <span className="h-1 w-1 rounded-full bg-white/20" />
+                        <span className="uppercase tracking-widest text-emerald-400">{p.status}</span>
+                      </>
+                    )}
+                  </div>
+                  
+                  <h3 className="text-2xl font-semibold tracking-tight text-white mb-3 hover:opacity-75 transition-opacity">
+                    <Link to={`/projects/${p.slug}`}>{p.title}</Link>
+                  </h3>
+                  
+                  <p className="text-base font-light leading-relaxed text-white/60 mb-6">
+                    {p.tagline}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {p.tech.slice(0, 3).map((t) => (
+                      <TechBadge key={t} tech={t} />
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center gap-6 mt-2">
+                    <Link
+                      to={`/projects/${p.slug}`}
+                      className="flex items-center gap-2 text-sm font-medium text-white transition-opacity hover:opacity-70"
                     >
-                      <ExternalLink className="h-5 w-5" />
-                    </a>
-                  )}
+                      Case Study <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    {p.github && (
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-white/40 transition-colors hover:text-white"
+                        aria-label="GitHub Repo"
+                      >
+                        <Github className="h-5 w-5" />
+                      </a>
+                    )}
+                    {p.demo && p.demo !== "#" && (
+                      <a
+                        href={p.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-white/40 transition-colors hover:text-white"
+                        aria-label="Live Demo"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </FadeUp>
-        ))}
+            </FadeUp>
+          );
+        })}
       </div>
     </Section>
   );
@@ -448,6 +458,12 @@ function Contact() {
               </div>
               <span>{EMAIL}</span>
             </a>
+            <a href={`tel:${PHONE}`} className="group flex items-center gap-4 text-white/60 transition-colors hover:text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 group-hover:border-white/30">
+                <Phone className="h-5 w-5" />
+              </div>
+              <span>{PHONE}</span>
+            </a>
             <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="group flex items-center gap-4 text-white/60 transition-colors hover:text-white">
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 group-hover:border-white/30">
                 <Linkedin className="h-5 w-5" />
@@ -553,6 +569,10 @@ function Footer() {
               <a href={`mailto:${EMAIL}`} className="group flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors">
                 <Mail className="h-4 w-4 transition-transform group-hover:scale-110" />
                 <span>Email</span>
+              </a>
+              <a href={`tel:${PHONE}`} className="group flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors">
+                <Phone className="h-4 w-4 transition-transform group-hover:scale-110" />
+                <span>Phone</span>
               </a>
             </div>
           </div>
