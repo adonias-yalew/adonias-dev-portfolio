@@ -44,22 +44,21 @@ function Hero() {
       <div className="relative z-10 mx-auto grid max-w-7xl gap-8 sm:gap-16 px-6 lg:grid-cols-2 lg:gap-8 lg:px-12 w-full items-center">
         <FadeUp delay={0.3} className="flex justify-center lg:hidden">
           <div className="group relative aspect-[4/5] w-[45%] sm:w-[50%] max-w-xs sm:max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent z-10" />
             <img 
               src="/my-image.png" 
               alt="Adonias Yalew" 
-              className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
+              className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105 opacity-90"
             />
             <div className="absolute bottom-6 left-6 z-20">
               <p className="font-mono text-xs uppercase tracking-widest text-white/50 mb-1">Based in</p>
-              <p className="text-lg font-medium tracking-tight text-white">Ethiopia</p>
+              <p className="text-lg font-medium tracking-tight text-white drop-shadow-lg">Ethiopia</p>
             </div>
           </div>
         </FadeUp>
 
         <StaggerContainer delayChildren={0.2} staggerChildren={0.15}>
           <StaggerItem>
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium tracking-wide text-white/70 backdrop-blur-md">
+            <div className="hidden sm:inline-flex mb-8 items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium tracking-wide text-white/70 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
