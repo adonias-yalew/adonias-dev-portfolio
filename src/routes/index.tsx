@@ -23,8 +23,8 @@ export default function Home() {
     <main className="flex flex-col gap-32 pb-32">
       <Hero />
       <About />
-      <ExperienceSection />
       <ProjectsSection />
+      <ExperienceSection />
       <ServicesSection />
       <Skills />
       <GitHubSection />
@@ -41,7 +41,22 @@ function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center justify-center pt-20 overflow-hidden">
       <HeroBackground />
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-8 lg:px-12 w-full items-center">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-8 sm:gap-16 px-6 lg:grid-cols-2 lg:gap-8 lg:px-12 w-full items-center">
+        <FadeUp delay={0.3} className="flex justify-center lg:hidden">
+          <div className="group relative aspect-[4/5] w-[45%] sm:w-[50%] max-w-xs sm:max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent z-10" />
+            <img 
+              src="/my-image.png" 
+              alt="Adonias Yalew" 
+              className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
+            />
+            <div className="absolute bottom-6 left-6 z-20">
+              <p className="font-mono text-xs uppercase tracking-widest text-white/50 mb-1">Based in</p>
+              <p className="text-lg font-medium tracking-tight text-white">Ethiopia</p>
+            </div>
+          </div>
+        </FadeUp>
+
         <StaggerContainer delayChildren={0.2} staggerChildren={0.15}>
           <StaggerItem>
             <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium tracking-wide text-white/70 backdrop-blur-md">
@@ -86,7 +101,7 @@ function Hero() {
           </StaggerItem>
         </StaggerContainer>
 
-        <FadeUp delay={0.6} className="hidden lg:flex justify-end">
+        <FadeUp delay={0.3} className="hidden lg:flex lg:justify-end">
           <div className="group relative aspect-[4/5] w-[80%] max-w-md overflow-hidden rounded-3xl border border-white/10 bg-white/5">
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent z-10" />
             <img 
@@ -98,7 +113,7 @@ function Hero() {
               <p className="font-mono text-xs uppercase tracking-widest text-white/50 mb-1">Based in</p>
               <p className="text-xl font-medium tracking-tight text-white">Ethiopia</p>
             </div>
-            <div className="absolute right-8 top-8 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/20 backdrop-blur-md transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+            <div className="hidden sm:flex absolute right-8 top-8 z-20 h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/20 backdrop-blur-md transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
                <span className="font-serif text-2xl italic text-white/80">A</span>
             </div>
           </div>
@@ -156,41 +171,87 @@ function About() {
 function ExperienceSection() {
   const experiences = [
     {
-      title: "Hack Into Bright Ethiopia Hackathon",
-      role: "Participant",
+      title: "Hack Into Bright Ethiopia 2024 Hackathon",
       date: "2024",
       description:
-        "Collaborated with a team to design and prototype a technology solution addressing real-world community challenges. Contributed to both frontend and backend development, participated in idea validation and product planning, and presented the final MVP to a panel of judges.",
+        "Participated in the Hack into Bright Ethiopia Hackathon, collaborating with a team to solve real-world challenges through innovation, creativity, and technology. Recognized for active participation and problem-solving.",
+      image: "/certificates/Hack into Bright Ethiopia 2024 Hackathon.jpg",
     },
     {
-      title: "INSA Web Development Training",
-      role: "Trainee",
-      date: "Weekend Program",
+      title: "ALX Professional Foundations Certificate",
+      date: "ALX",
       description:
-        "Participated in an intensive web development training program organized by INSA. Learned the fundamentals of modern web development, frontend technologies, and professional software development practices.",
+        "Completed the ALX Professional Foundations program, strengthening communication, teamwork, leadership, critical thinking, career readiness, and other essential professional skills for the digital workplace.",
+      image: "/certificates/ALX Professional Foundations Certificate.png",
+    },
+    {
+      title: "Ethiopia Tech Freelance Workers Training",
+      date: "2024",
+      description:
+        "Completed a professional training program by the International Trade Centre (ITC) under the Netherlands Trust Fund (NTF V), covering freelance work, digital skills, and opportunities in the global technology marketplace.",
+      image: "/certificates/Ethiopia Tech Freelance Workers Training.jpg",
+    },
+    {
+      title: "Programming Fundamentals Nanodegree",
+      date: "Udacity",
+      description:
+        "Successfully completed Udacity's Programming Fundamentals Nanodegree, building a strong foundation in programming concepts, problem-solving, algorithms, and software development principles.",
+      image: "/certificates/Programming Fundamentals Nanodegree.jpg",
+    },
+    {
+      title: "Artificial Intelligence Fundamentals Nanodegree",
+      date: "Udacity",
+      description:
+        "Completed Udacity's AI Fundamentals Nanodegree, gaining foundational knowledge of artificial intelligence, machine learning concepts, data-driven decision-making, and AI applications.",
+      image: "/certificates/Artificial Intelligence Fundamentals Nanodegree.jpg",
+    },
+    {
+      title: "Android Developer Fundamentals Nanodegree",
+      date: "Udacity",
+      description:
+        "Completed Udacity's Android Developer Fundamentals Nanodegree, learning Android application development, user interface design, application architecture, and mobile development best practices.",
+      image: "/certificates/Android Developer Fundamentals Nanodegree.jpg",
+    },
+    {
+      title: "Data Analysis Fundamentals Nanodegree",
+      date: "Udacity",
+      description:
+        "Completed Udacity's Data Analysis Fundamentals Nanodegree, developing skills in data collection, analysis, visualization, and extracting insights to support informed decision-making.",
+      image: "/certificates/Data Analysis Fundamentals Nanodegree.jpg",
     },
   ];
 
   return (
-    <Section id="experience" label="02 / Experience" title="Journey">
-      <StaggerContainer className="space-y-8">
+    <Section id="experience" label="03 / Experience" title="Experience">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {experiences.map((exp, i) => (
           <StaggerItem key={i}>
-            <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 backdrop-blur-sm transition-all hover:bg-white/[0.04]">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-baseline sm:justify-between">
-                <h3 className="text-xl font-semibold tracking-tight text-white">{exp.title}</h3>
-                <span className="font-mono text-xs uppercase tracking-widest text-white/40">
-                  {exp.date}
-                </span>
+            <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all hover:bg-white/[0.04] flex flex-col">
+              {exp.image && (
+                <div className="overflow-hidden aspect-[16/10]">
+                  <img
+                    src={exp.image}
+                    alt={exp.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col p-6 pt-5 flex-1">
+                <div className="flex items-baseline justify-between gap-2 mb-3">
+                  <h3 className="text-base font-semibold tracking-tight text-white leading-snug">{exp.title}</h3>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-white/40 shrink-0">
+                    {exp.date}
+                  </span>
+                </div>
+                <p className="text-sm font-light leading-relaxed text-white/60">
+                  {exp.description}
+                </p>
               </div>
-              <p className="mt-2 text-sm text-white/50">{exp.role}</p>
-              <p className="mt-6 font-light leading-relaxed text-white/60">
-                {exp.description}
-              </p>
             </div>
           </StaggerItem>
         ))}
-      </StaggerContainer>
+      </div>
     </Section>
   );
 }
@@ -198,7 +259,7 @@ function ExperienceSection() {
 /* ---------- Projects ---------- */
 function ProjectsSection() {
   return (
-    <Section id="projects" label="03 / Work" title="Selected Projects">
+    <Section id="projects" label="02 / Work" title="Selected Projects">
       <div className="grid gap-x-12 gap-y-24 md:grid-cols-2 lg:gap-x-16">
         {projects.map((p, index) => {
           // Stagger effect: even cards are slightly shifted down on desktop
