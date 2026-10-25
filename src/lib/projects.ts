@@ -19,6 +19,56 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "scholar-academy",
+    title: "Scholar Academy — School Academic Management System",
+    tagline:
+      "Role-based platform for managing academic records, grades, and student results across a high school.",
+    year: "2025",
+    problem:
+      "High schools rely on manual coordination between administrators, teachers, homeroom teachers, and directors to manage academic records, mark submissions, and generate student reports — a process that is slow, error-prone, and difficult to track across subjects and classes.",
+    solution:
+      "Scholar Academy is a role-aware academic management system where each school role has a dedicated, purposeful dashboard. Administrators configure academic years, classes, subjects, teacher assignments, and grading rules. Teachers enter and submit marks. Homeroom teachers track subject submissions, review class results and rankings, and send consolidated reports to the director. Directors monitor report progress and review school-wide performance.",
+    architecture:
+      "React + TypeScript frontend with role-based routing and protected dashboards, connected to a RESTful backend API. Data is structured around academic years, classes, subjects, student records, and mark submissions. The system enforces role separation so each user type only sees and acts on the data relevant to their position.",
+    features: [
+      "Role-based dashboards for Administrators, Teachers, Homeroom Teachers, and Directors",
+      "Academic year, class, and subject configuration by administrators",
+      "Teacher assignment and grading rule management",
+      "Mark entry and submission workflow for teachers",
+      "Subject submission tracking and class result reviews for homeroom teachers",
+      "Student rankings and class-level result summaries",
+      "Report forwarding from homeroom teachers to the director",
+      "Director dashboard for monitoring report progress and school performance",
+      "Searchable and filterable student records",
+      "Excel export for results and reports",
+      "Print-ready academic report generation",
+      "Responsive design across all screen sizes",
+    ],
+    tech: ["React", "TypeScript", "Tailwind CSS", "REST APIs", "Excel Export"],
+    challenges: [
+      "Designing a clean role model that clearly separates admin, teacher, homeroom, and director workflows without overlap",
+      "Building a mark submission pipeline that tracks which subjects have been submitted per class",
+      "Generating accurate student rankings across subjects while handling edge cases like absent students or incomplete marks",
+      "Making report forwarding and director monitoring feel seamless without overcomplicating the data flow",
+    ],
+    results: [
+      "Fully working role-based system covering all four school roles",
+      "Responsive dashboards with searchable student records and class filters",
+      "Excel export and print-ready reports integrated into the workflow",
+      "Report notification and forwarding system between homeroom teachers and the director",
+      "Deployed and live on Vercel",
+    ],
+    future: [
+      "SMS or email notifications for report submissions and director approvals",
+      "Parent portal for viewing student results",
+      "Analytics dashboard for tracking grade trends over multiple academic years",
+      "Mobile application for teachers to enter marks on the go",
+    ],
+    github: "https://github.com/adonias-yalew/Grading-System",
+    demo: "https://grading-system-three-amber.vercel.app/",
+    image: "/School_Grading_System.png",
+  },
+  {
     slug: "clinic-booking",
     title: "Clinic Booking System",
     tagline: "Appointment management for clinics, doctors, and patients.",
