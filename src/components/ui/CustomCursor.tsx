@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [cursorEnabled, setCursorEnabled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const cursorX = useMotionValue(-100);
@@ -13,19 +13,27 @@ export function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    // Check if the device has a fine pointer (like a mouse)
     const checkPointer = () => {
-      setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+      setCursorEnabled(
+        window.matchMedia("(pointer: fine)").matches &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+      );
     };
 
     checkPointer();
     window.addEventListener("resize", checkPointer);
-
-    return () => window.removeEventListener("resize", checkPointer);
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    motionPreference.addEventListener("change", checkPointer);
+    return () => {
+      window.removeEventListener("resize", checkPointer);
+      motionPreference.removeEventListener("change", checkPointer);
+    };
   }, []);
 
   useEffect(() => {
-    if (isMobile) return;
+    if (!cursorEnabled) return;
+
+    document.body.classList.add("custom-cursor-active");
 
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
@@ -47,33 +55,34 @@ export function CustomCursor() {
       }
     };
 
-    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("pointermove", moveCursor);
     window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
+      document.body.classList.remove("custom-cursor-active");
+      window.removeEventListener("pointermove", moveCursor);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [cursorX, cursorY, isMobile]);
+  }, [cursorX, cursorY, cursorEnabled]);
 
-  if (isMobile) return null;
+  if (!cursorEnabled) return null;
 
   return (
     <>
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[100] h-8 w-8 rounded-full border border-white/40 mix-blend-difference"
+        className="custom-cursor-ring pointer-events-none fixed left-0 top-0 z-[100]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
         }}
         animate={{
-          scale: isHovered ? 1.5 : 1,
-          backgroundColor: isHovered ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0)",
+          scale: isHovered ? 1.55 : 1,
+          opacity: isHovered ? 1 : 0,
         }}
         transition={{ duration: 0.2 }}
       />
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[100] h-1.5 w-1.5 rounded-full bg-white mix-blend-difference"
+        className="custom-cursor-dot pointer-events-none fixed left-0 top-0 z-[100]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
