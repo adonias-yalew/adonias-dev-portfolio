@@ -2293,6 +2293,11 @@ a {
     grid-template-columns: 1fr;
     gap: 25px;
   }
+  .project-entry-4 .project-layout,
+  .project-entry-6 .project-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
   .project-entry-2 .project-image,
   .project-entry-2 .project-copy {
     order: initial;
@@ -2464,6 +2469,14 @@ a {
   }
   .project-image {
     aspect-ratio: 1.17;
+  }
+  .project-entry-6 .project-image {
+    aspect-ratio: 1.17;
+  }
+  .project-entry-4 .project-image img,
+  .project-entry-6 .project-image img {
+    object-fit: cover;
+    filter: saturate(0.86);
   }
   .preview-number {
     font-size: 125px;
