@@ -65,7 +65,7 @@ export const projects: Project[] = [
       "Mobile application for teachers to enter marks on the go",
     ],
     github: "https://github.com/adonias-yalew/Grading-System",
-    demo: "https://scholar-gradehub.vercel.app/login",
+    demo: "https://scholar-gradinghub.vercel.app/login",
     image: "/School_Grading_System.png",
   },
   {
