@@ -8,6 +8,7 @@ import SideReadingProgress from "@/components/SideReadingProgress";
 const profileGithub = "https://github.com/adonias-yalew";
 const audiences: Record<string, string[]> = {
   "scholar-academy": ["School administrators", "Teachers", "Homeroom teachers", "Directors"],
+  "developer-gazette": ["Portfolio visitors", "Recruiters", "Project collaborators"],
   "clinic-booking": ["Patients", "Doctors", "Clinic staff"],
   haymanote: ["Community members", "Verified leaders", "Platform administrators"],
   "mela-solutions": ["Students", "Recent graduates", "Opportunity seekers"],
@@ -17,6 +18,8 @@ const audiences: Record<string, string[]> = {
 const contributions: Record<string, string> = {
   "scholar-academy":
     "Shaping role-specific school workflows, the mark submission pipeline, and the reporting handoff from homeroom review to the director.",
+  "developer-gazette":
+    "Designing and building the portfolio experience, project case studies, responsive layouts, and editorial visual system.",
   "clinic-booking":
     "Building the appointment flow around patient accounts, doctor availability, appointment history, and clinic staff tools.",
   haymanote:
@@ -30,6 +33,7 @@ const contributions: Record<string, string> = {
 };
 const systemLayers: Record<string, string[]> = {
   "scholar-academy": ["React + TypeScript dashboards", "REST API", "Academic records & marks"],
+  "developer-gazette": ["React + TypeScript", "Vite + CSS", "Project case studies & portfolio"],
   "clinic-booking": ["React experience", "Node.js + Express API", "PostgreSQL records"],
   haymanote: ["Node.js + Express API", "PostgreSQL · MongoDB", "Community · marketplace · events"],
   "mela-solutions": ["Next.js platform", "Supabase · PostgreSQL", "Telegram Bot API"],
@@ -49,7 +53,16 @@ export default function ProjectPage() {
   const { projectId = "" } = useParams();
   const [activeSection, setActiveSection] = useState("problem");
   const project = getProject(projectId);
-  const projectIndex = projects.findIndex((item) => item.slug === projectId);
+  const projectOrder = [
+    "scholar-academy",
+    "haymanote",
+    "clinic-booking",
+    "mela-solutions",
+    "developer-gazette",
+    "addis-tesfa",
+    "tourism-booking",
+  ];
+  const projectIndex = projectOrder.indexOf(projectId);
   const others = projects.filter((item) => item.slug !== projectId).slice(0, 3);
 
   useEffect(() => {

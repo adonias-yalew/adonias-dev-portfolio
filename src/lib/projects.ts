@@ -149,7 +149,7 @@ export const projects: Project[] = [
   },
   {
     slug: "mela-solutions",
-    title: "Mela Solutions",
+    title: "Mela Job Finder",
     tagline: "Student Job & Opportunity Platform helping students discover entry-level jobs and internships.",
     status: "In Active Development",
     year: "2025 – Present",
@@ -184,6 +184,44 @@ export const projects: Project[] = [
     github: "https://github.com/adonias-yalew",
     demo: "#",
     image: "/mela-soultions-screenshot.png",
+  },
+  {
+    slug: "developer-gazette",
+    title: "Developer Gazette",
+    tagline:
+      "A personal portfolio presented as an editorial field guide to selected software projects and engineering practice.",
+    year: "2026",
+    problem:
+      "A conventional portfolio can make projects feel like a disconnected list and leave visitors without a clear sense of the thinking behind the work.",
+    solution:
+      "Developer Gazette brings selected projects, working principles, technical skills, credentials, and contact details into one cohesive editorial experience.",
+    architecture:
+      "Built with React and TypeScript using Vite, with reusable project data and responsive layouts. Custom CSS supports the visual system, theme options, reading progress, and motion across the portfolio and case studies.",
+    features: [
+      "Editorial homepage presenting selected project case studies",
+      "Dedicated detail pages for project context, approach, and engineering notes",
+      "Responsive navigation and layouts for desktop and mobile",
+      "Dark and light appearance options",
+      "Reading progress and animated interface details",
+      "Resume download and direct contact links",
+    ],
+    tech: ["React", "TypeScript", "Vite", "CSS"],
+    challenges: [
+      "Building a distinctive editorial style that remains readable across screen sizes",
+      "Keeping navigation and project presentation consistent between the homepage and case studies",
+      "Balancing motion and visual detail with a clear reading experience",
+    ],
+    results: [
+      "A single destination for selected work, skills, credentials, and contact information",
+      "Reusable project case study pages with consistent navigation",
+      "Responsive presentation with theme controls and reading progress",
+    ],
+    future: [
+      "Add new project case studies as the portfolio grows",
+      "Continue refining accessibility and mobile presentation",
+    ],
+    github: "https://github.com/adonias-yalew",
+    image: "/potfolio_sc.png",
   },
   {
     slug: "tourism-booking",

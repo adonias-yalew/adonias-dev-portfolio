@@ -170,9 +170,10 @@ export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const featured = [
     projects.find((p) => p.slug === "scholar-academy"),
-    projects.find((p) => p.slug === "mela-solutions"),
-    projects.find((p) => p.slug === "clinic-booking"),
     projects.find((p) => p.slug === "haymanote"),
+    projects.find((p) => p.slug === "clinic-booking"),
+    projects.find((p) => p.slug === "mela-solutions"),
+    projects.find((p) => p.slug === "developer-gazette"),
     projects.find((p) => p.slug === "addis-tesfa"),
     projects.find((p) => p.slug === "tourism-booking"),
   ].filter((project) => project !== undefined);
@@ -457,17 +458,19 @@ export default function Home() {
               (p, i) =>
                 p && (
                   <article
-                    className={`project-entry project-entry-${i + 1}`}
+                    className={`project-entry project-entry-${i + 1} project-entry-${p.slug}`}
                     key={p.slug}
                     data-reveal
                   >
                     <div className="project-meta mono">
-                      <span>CASE FILE / 00{i + 1}</span>
+                      <span>CASE FILE / {String(i + 1).padStart(3, "0")}</span>
                       <span>{p.year}</span>
                       <span>
                         {p.status || (p.demo && p.demo !== "#" ? "DEMO ONLINE" : "PROJECT FILE")}
                       </span>
-                      <span>0{i + 1} — 06</span>
+                      <span>
+                        {String(i + 1).padStart(2, "0")} — {String(featured.length).padStart(2, "0")}
+                      </span>
                     </div>
                     <div className="project-layout">
                       <Link
@@ -704,7 +707,8 @@ function SectionHeading({
 function projectCategory(slug: string) {
   const labels: Record<string, string> = {
     "scholar-academy": "ACADEMIC OPERATIONS / WEB APP",
-    "mela-solutions": "STUDENT OPPORTUNITIES / FULL STACK",
+    "developer-gazette": "PERSONAL PORTFOLIO / EDITORIAL WEB DESIGN",
+    "mela-solutions": "STUDENT JOB FINDER / OPPORTUNITY PLATFORM",
     "clinic-booking": "HEALTHCARE / APPOINTMENT WORKFLOW",
     haymanote: "COMMUNITY / MULTI-FAITH PLATFORM",
     "addis-tesfa": "WELLBEING / DIGITAL SUPPORT",

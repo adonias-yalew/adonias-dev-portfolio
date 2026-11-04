@@ -1478,11 +1478,11 @@ a {
 .project-entry-6 .project-copy {
   order: 1;
 }
-.project-entry-5 .project-image {
+.project-entry-addis-tesfa .project-image {
   aspect-ratio: 1.24;
   background: #294f45;
 }
-.project-entry-5 .project-image img {
+.project-entry-addis-tesfa .project-image img {
   filter: saturate(0.78) hue-rotate(10deg);
 }
 .project-image {
@@ -1502,11 +1502,11 @@ a {
   object-fit: contain;
   filter: none;
 }
-.project-entry-6 .project-image {
+.project-entry-tourism-booking .project-image {
   aspect-ratio: 2.02;
   background: var(--panel2);
 }
-.project-entry-6 .project-image img {
+.project-entry-tourism-booking .project-image img {
   object-fit: contain;
   filter: none;
 }
@@ -2470,11 +2470,12 @@ a {
   .project-image {
     aspect-ratio: 1.17;
   }
-  .project-entry-6 .project-image {
+  .project-entry-tourism-booking .project-image {
     aspect-ratio: 1.17;
   }
   .project-entry-4 .project-image img,
-  .project-entry-6 .project-image img {
+  .project-entry-6 .project-image img,
+  .project-entry-tourism-booking .project-image img {
     object-fit: cover;
     filter: saturate(0.86);
   }
