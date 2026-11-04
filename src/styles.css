@@ -238,6 +238,10 @@ a {
   overflow: clip;
 }
 .site-nav {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-inline: clamp(20px, 6.4vw, 110px);
+  box-sizing: border-box;
   min-height: 82px;
   display: flex;
   align-items: center;
@@ -2331,6 +2335,9 @@ a {
 @media (max-width: 540px) {
   .dark-journal {
     padding: 0 18px;
+  }
+  .site-nav {
+    padding-inline: 18px;
   }
   .wordmark-caption {
     font-size: 12px;
